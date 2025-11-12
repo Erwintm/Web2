@@ -7,9 +7,9 @@ USE control_escolar;
 
 CREATE TABLE usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+    nombre_usuario VARCHAR(40) UNIQUE NOT NULL,
+    contraseña VARCHAR(25) NOT NULL,
+    email VARCHAR(40) UNIQUE NOT NULL,
     tipo_usuario ENUM('administrador', 'maestro', 'alumno') NOT NULL
 );
 
