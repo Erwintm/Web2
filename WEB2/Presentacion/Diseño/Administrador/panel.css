@@ -90,12 +90,12 @@ main p {
 }
 
 
-/* --- FOOTER --- */
+
 footer {
   background-color: #2c4c8a;
   color: white;
   display: flex;
-  justify-content: space-between;
+  
   align-items: center;
   padding: 15px 40px;
   flex-wrap: wrap;
@@ -103,7 +103,7 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 1800px;
 }
 
 .footer-izquierda {
@@ -123,12 +123,13 @@ footer {
 
 .footer-info {
   text-align: center;
-  padding-left: 150px;
+  
 }
 
 .footer-info p {
   margin: 2px 0;
   font-size: 14px;
+  padding-left: 360px;
 }
 
 .footer-derecha {
@@ -137,7 +138,7 @@ footer {
 }
 
 .footer-derecha p {
-  padding-right: 150px;
+  padding-right: 430px;
   margin: 5px 0;
   font-size: 14px;
 }
