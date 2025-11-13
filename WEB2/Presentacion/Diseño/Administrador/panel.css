@@ -75,9 +75,7 @@ main p {
   transition: transform 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+
 
 .card h3 {
   color: #2c4c8a;

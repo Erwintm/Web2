@@ -46,7 +46,6 @@
     
     <div class="footer-info">
       <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
-      <p><strong>Teléfono: 445 192 8872</strong></p>
        <p><strong>Correo:instecsanico@gmail.com</strong></p>
     </div>
   </div>
