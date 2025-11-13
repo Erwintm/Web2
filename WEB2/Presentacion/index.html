@@ -2,41 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Presentacion/Diseño/index.css">
     <title>Login</title>
+    <link rel="stylesheet" href="Diseño/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body >
-    
-    
-    <form id="login">
+<body>
+
+    <form id="login" method="POST" action="../Negocio/validar_login.php">
         <h3>Iniciar Sesión</h3>
 
         <label for="txtUser">Usuario</label>
         <div class="contenedor">
             <i class="fa fa-user"></i>
-            <input type="text" id="txtUser" placeholder="Ingrese su usuario">
+            <input type="text" id="txtUser" name="usuario" placeholder="Ingrese su usuario">
         </div>
 
-        <label for="txtPass">Password</label>
+        <label for="txtPass">Contraseña</label>
         <div class="contenedor">
             <i class="fa fa-key"></i>
-            <input type="password" id="txtPass" placeholder="Ingrese su contraseña">
+            <input type="password" id="txtPass" name="password" placeholder="Ingrese su contraseña">
         </div>
 
         <button type="submit">Ingresar</button>
     </form>
 
     <footer>
-
-        <p>Instituto Tecnologico Superior de San Nicolas de Hidalgo</p>
-        <p>Telefono: 4451928872</p>
-      
-
+        <p>Instituto Tecnológico Superior de San Nicolás de Hidalgo</p>
+        <p>Teléfono: 4451928872</p>
     </footer>
-    
+
 </body>
-
-
 </html>
