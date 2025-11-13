@@ -2,14 +2,13 @@
 session_start();
 require_once '../Datos/conexion.php';
 
-if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
-    header("Location: ../index.php");
-    exit;
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $password = $_POST['password'] ?? '';
+
+    
+
 
     if (empty($usuario) || empty($password)) {
         echo "<script>alert('Por favor llena todos los campos'); window.history.back();</script>";
