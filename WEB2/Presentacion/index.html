@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="Diseño/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-    <form id="login" method="POST" action="../Negocio/validar_login.php">
-        <h3>Iniciar Sesión</h3>
 
+    <form id="login" method="POST" action="../Negocio/validar_login.php">
+
+        <h3>Iniciar Sesión</h3>
+        
         <label for="txtUser">Usuario</label>
+        
         <div class="contenedor">
             <i class="fa fa-user"></i>
             <input type="text" id="txtUser" name="usuario" placeholder="Ingrese su usuario">
@@ -19,17 +23,49 @@
 
         <label for="txtPass">Contraseña</label>
         <div class="contenedor">
+
             <i class="fa fa-key"></i>
+
             <input type="password" id="txtPass" name="password" placeholder="Ingrese su contraseña">
+
         </div>
 
         <button type="submit">Ingresar</button>
+
     </form>
 
     <footer>
-        <p>Instituto Tecnológico Superior de San Nicolás de Hidalgo</p>
-        <p>Teléfono: 4451928872</p>
+
+        <div class="footer-izquierda">
+
+    <img src="Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
+
+    
+
+    <div class="footer-info">
+
+      <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
+
+       <p><strong>Correo:instecsanico@gmail.com</strong></p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="footer-derecha">
+
+    <p><strong>Sistema de Administración Escolar 2025</strong></p>
+
+    <p><strong>Desarrollado por el área de informática</strong></p>
+
+  </div>
+
     </footer>
 
+
+
 </body>
+
 </html>

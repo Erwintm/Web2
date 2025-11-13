@@ -54,7 +54,7 @@ require_once '../../Datos/conexion.php';
                 </tr>
             </thead>
             <tbody id="tablaAlumnos">
-                <!-- Aquí se cargan los alumnos por AJAX -->
+            
             </tbody>
         </table>
     </div>
@@ -75,7 +75,7 @@ require_once '../../Datos/conexion.php';
     </footer>
      -->
 
-    <!-- AJAX -->
+  
     <script>
         function cargarAlumnos(filtro = '') {
             $.ajax({
