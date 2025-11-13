@@ -3,6 +3,10 @@ require_once '../Datos/conexion.php';
 
 $filtro = $_GET['filtro'] ?? '';
 
+
+
+
+
 if ($filtro) {
     $sql = "SELECT matricula, nombre, apellido, email, telefono, fecha_nacimiento, estado 
             FROM alumnos WHERE nombre LIKE :filtro OR apellido LIKE :filtro";

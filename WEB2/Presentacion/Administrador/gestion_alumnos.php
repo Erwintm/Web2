@@ -21,21 +21,17 @@ require_once '../../Datos/conexion.php';
 </head>
 <body>
 
-   
-   <!--  <header>
-        <div class="logo">Administración Escolar</div>
-        <nav>
-            <ul>
-                <li><a href="menu.php">Inicio</a></li>
-                <li><a href="gestion_alumnos.php" >Gestión Alumnos</a></li>
-                <li><a href="gestion_maestros.php">Gestión Maestros</a></li>
-                <li><a href="gestion_materias.php">Gestión Materias</a></li>
-                <li><a href="../index.html">Cerrar sesión</a></li>
-            </ul>
-        </nav>
-    </header>
- -->
-    <!-- CONTENIDO -->
+<header>
+    <h1>Adminitracion Escolar</h1>
+    <nav>
+     <a href="menu.php">Inicio</a>
+      <a href="gestion_alumnos.php">Gestion Alumnos</a>
+      <a href="listaMaterias.php">Gestion Maestros</a>
+      <a href="perfil.php">Gestion Materias</a>
+      <a href="../index.html"> Cerrar sesión</a>
+    </nav>
+  </header>   
+
     <div class="container">
         <h2>Gestión de Alumnos</h2>
 
@@ -46,7 +42,7 @@ require_once '../../Datos/conexion.php';
                 <tr>
                     <th>Matricula</th>
                     <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th>Apellidos</th>
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Fecha de nacimiento</th>
@@ -59,21 +55,23 @@ require_once '../../Datos/conexion.php';
         </table>
     </div>
 
-    <!-- 
+  
     <footer>
-        <div class="footer-left">
-            <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
-            <div class="footer-info">
-                <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
-                <p>Teléfono: 445 192 8872</p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <p>Sistema de Administración Escolar © 2025</p>
-            <p>Desarrollado por el área de informática</p>
-        </div>
-    </footer>
-     -->
+  <div class="footer-izquierda">
+    <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
+    
+    <div class="footer-info">
+      <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
+       <p><strong>Correo:instecsanico@gmail.com</strong></p>
+    </div>
+  </div>
+
+  <div class="footer-derecha">
+    <p><strong>Sistema de Administración Escolar 2025</strong></p>
+    <p><strong>Desarrollado por el área de informática</strong></p>
+  </div>
+</footer>
+     
 
   
     <script>
