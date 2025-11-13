@@ -2,6 +2,11 @@
 session_start();
 require_once '../Datos/conexion.php';
 
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
+    header("Location: ../index.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -27,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Redirigir según el tipo de usuario
         switch ($user['tipo_usuario']) {
             case 'administrador':
-                header("Location: ../Presentacion/admin/inicio.php");
+                header("Location: ../Presentacion/Administrador/menu.php");
                 break;
             case 'maestro':
                 header("Location: ../");
