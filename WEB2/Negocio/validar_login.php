@@ -2,9 +2,13 @@
 session_start();
 require_once '../Datos/conexion.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['usuario'] ?? '';
     $password = $_POST['password'] ?? '';
+
+    
+
 
     if (empty($usuario) || empty($password)) {
         echo "<script>alert('Por favor llena todos los campos'); window.history.back();</script>";
@@ -27,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Redirigir según el tipo de usuario
         switch ($user['tipo_usuario']) {
             case 'administrador':
-                header("Location: ../Presentacion/admin/inicio.php");
+                header("Location: ../Presentacion/Administrador/menu.php");
                 break;
             case 'maestro':
                 header("Location: ../");
