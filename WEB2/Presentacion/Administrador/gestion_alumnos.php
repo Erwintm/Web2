@@ -17,52 +17,65 @@ require_once '../../Datos/conexion.php';
     <title>Gestión de Alumnos</title>
     <link rel="stylesheet" href="../Diseño/Administrador/gestion_alumnos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
 </head>
 <body>
 
 <header>
-    <h1>Adminitracion Escolar</h1>
+    <h1>Administración Escolar</h1>
     <nav>
-     <a href="menu.php">Inicio</a>
-      <a href="gestion_alumnos.php">Gestion Alumnos</a>
-      <a href="listaMaterias.php">Gestion Maestros</a>
-      <a href="perfil.php">Gestion Materias</a>
-      <a href="../index.html"> Cerrar sesión</a>
+        <a href="menu.php">Inicio</a>
+        <a href="gestion_alumnos.php">Gestión Alumnos</a>
+        <a href="listaMaterias.php">Gestión Maestros</a>
+        <a href="perfil.php">Gestión Materias</a>
+        <a href="../index.html">Cerrar sesión</a>
     </nav>
-  </header>   
+</header>
 
-    <div class="container">
-        <h2>Gestión de Alumnos</h2>
+<div class="container">
+    <h2>Gestión de Alumnos</h2>
+
+    <div class="filtros">
+        <select id="filtroCarrera">
+            <option value="">Todas las carreras</option>
+            <option value="Sistemas Computacionales">Sistemas Computaciones</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Mecatronica">Mecatrónica</option>
+            <option value="Gestion">Gestión</option>
+             <option value="Gastronomia">Gastronomia</option>
+             <option value="Fisica">Fisica</option>
+        
+        
+        </select>
 
         <input type="text" id="buscar" placeholder="Buscar por nombre de alumno...">
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Matricula</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Teléfono</th>
-                    <th>Fecha de nacimiento</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody id="tablaAlumnos">
-            
-            </tbody>
-        </table>
+        <button id="btnAgregar" onclick="location.href='agregar_alumno.php'">
+            Agregar Alumno
+        </button>
     </div>
 
-  
-    <footer>
+    <table>
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Fecha de nacimiento</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaAlumnos"></tbody>
+    </table>
+</div>
+
+<footer>
   <div class="footer-izquierda">
     <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
-    
     <div class="footer-info">
       <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
-       <p><strong>Correo:instecsanico@gmail.com</strong></p>
+      <p><strong>Correo: instecsanico@gmail.com</strong></p>
     </div>
   </div>
 
@@ -71,30 +84,32 @@ require_once '../../Datos/conexion.php';
     <p><strong>Desarrollado por el área de informática</strong></p>
   </div>
 </footer>
-     
 
-  
-    <script>
-        function cargarAlumnos(filtro = '') {
-            $.ajax({
-                url: '../../Negocio/obtener_alumnos.php',
-                method: 'GET',
-                data: { filtro: filtro },
-                success: function(response) {
-                    $('#tablaAlumnos').html(response);
-                }
-            });
+<script>
+function cargarAlumnos() {
+    let filtro = $('#buscar').val();
+    let carrera = $('#filtroCarrera').val();
+
+    $.ajax({
+        url: '../../Negocio/obtener_alumnos.php',
+        method: 'GET',
+        data: { 
+            filtro: filtro,
+            carrera: carrera
+        },
+        success: function(response) {
+            $('#tablaAlumnos').html(response);
         }
+    });
+}
 
-        $(document).ready(function() {
-            cargarAlumnos(); // Cargar todos al inicio
+$(document).ready(function() {
+    cargarAlumnos(); // Cargar al inicio
 
-            $('#buscar').on('keyup', function() {
-                let filtro = $(this).val();
-                cargarAlumnos(filtro);
-            });
-        });
-    </script>
+    $('#buscar').on('keyup', cargarAlumnos);
+    $('#filtroCarrera').on('change', cargarAlumnos);
+});
+</script>
 
 </body>
 </html>

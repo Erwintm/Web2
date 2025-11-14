@@ -57,7 +57,7 @@ nav a:hover {
 #buscar {
   width: 300px;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 15px;
@@ -94,107 +94,90 @@ tr:hover {
 }
 
 footer {
-
   background-color: #2c4c8a;
-
   color: white;
-
   display: flex;
-
-  
-
   align-items: center;
-
   padding: 15px 40px;
 
   flex-wrap: wrap;
-
   box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
-
   position: fixed;
-
   bottom: 0;
-
   left: 0;
-
   width: 1800px;
 
 }
 
 
-
 .footer-izquierda {
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   flex: 1;
-
   text-align: center;
 
 }
-
-
 
 .logo-footer {
 
   width: 60px;
-
   height: auto;
-
   margin-right: 15px;
-
   border-radius: 8px;
 
 }
 
-
-
 .footer-info {
-
   text-align: center;
-
-  
-
 }
-
 
 
 .footer-info p {
-
   margin: 2px 0;
-
   font-size: 14px;
-
   padding-left: 360px;
-
 }
-
-
 
 .footer-derecha {
-
   text-align: right;
-
   flex: 1;
-
 }
-
-
 
 .footer-derecha p {
-
   padding-right: 430px;
-
   margin: 5px 0;
-
   font-size: 14px;
-
 }
 
+.filtros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+#filtroCarrera {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#btnAgregar {
+  padding: 10px 15px;
+  border: none;
+  background-color: #2c4c8a;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btnAgregar:hover {
+  background-color: #1f3561;
+}
 
 
 

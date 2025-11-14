@@ -36,13 +36,17 @@ CREATE TABLE alumnos (
 	id_usuario INT NOT NULL,
     matricula VARCHAR(20) UNIQUE NOT NULL,
     nombre VARCHAR(30) NOT NULL,
+    
     apellido VARCHAR(30) NOT NULL,
     email VARCHAR(30) unique not null,
     telefono VARCHAR(15),
     fecha_nacimiento DATE,
     estado ENUM('activo', 'inactivo') DEFAULT 'activo',
+     carrera VARCHAR(30),
      FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
 );
+
+
 
 
 -- TABLA: Asignaturas/Cursos
