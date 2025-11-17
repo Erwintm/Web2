@@ -30,7 +30,7 @@
             // Función para llenar el combo al cargar la página
             function cargarMaterias() {
                 $.ajax({
-                    url: 'obtener_alumno.php',
+                    url: 'obtener_materias.php',
                     type: 'POST',
                     dataType: 'json',
                     success: function(data) {
@@ -45,6 +45,8 @@
                                     <td>${materia.idmateria}</td>
                                     <td>${materia.nombre}</td>
                                     <td>${materia.creditos}</td>
+                                    <td>${materia.horario}</td>
+                                    <td>${materia.salon}</td>
                                     <td>${materia.profesor}</td>
                                 </tr>
                                 `;
