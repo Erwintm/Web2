@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Solo administradores pueden entrar
 
 ?>
 <!DOCTYPE html>
@@ -10,10 +9,11 @@ session_start();
     <meta charset="UTF-8">
     <title>Agregar Alumno</title>
 
-    <!-- Tu CSS -->
+   
     <link rel="stylesheet" href="../Diseño/Administrador/agregar_alumnos.css">
 </head>
 <body>
+
 
 <header>
     <h1>Administración Escolar</h1>
@@ -25,7 +25,6 @@ session_start();
         <a href="../index.html">Cerrar sesión</a>
     </nav>
 </header>
-
 <div class="container">
 
     <h2>Agregar Alumno</h2>

@@ -22,5 +22,20 @@
 
     
   </main>
+
+  <footer>
+  <div class="footer-izquierda">
+    <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
+    <div class="footer-info">
+      <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
+      <p><strong>Correo: instecsanico@gmail.com</strong></p>
+    </div>
+  </div>
+
+  <div class="footer-derecha">
+    <p><strong>Sistema de Administración Escolar 2025</strong></p>
+    <p><strong>Desarrollado por el área de informática</strong></p>
+  </div>
+</footer>
 </body>
 </html>
