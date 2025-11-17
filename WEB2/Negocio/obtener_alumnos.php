@@ -42,6 +42,17 @@ if ($alumnos) {
                 <td>{$a['telefono']}</td>
                 <td>{$a['fecha_nacimiento']}</td>
                 <td>{$a['estado']}</td>
+                 <td style='text-align:center;'>
+                    
+                     <button class='btn-editar' onclick=\"location.href='editar_alumno.php?matricula={$a['matricula']}'\">
+                        Editar
+                    </button>
+
+                        <button class='btn-eliminar' onclick=\"eliminarAlumno('{$a['matricula']}')\">
+                        Eliminar
+                    </button>
+                   </td>
+                
               </tr>";
     }
 } else {
