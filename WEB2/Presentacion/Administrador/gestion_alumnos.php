@@ -64,6 +64,7 @@ require_once '../../Datos/conexion.php';
                 <th>Teléfono</th>
                 <th>Fecha de nacimiento</th>
                 <th>Estado</th>
+                  <th>Acciones</th> 
             </tr>
         </thead>
         <tbody id="tablaAlumnos"></tbody>
@@ -99,6 +100,20 @@ function cargarAlumnos() {
         },
         success: function(response) {
             $('#tablaAlumnos').html(response);
+        }
+    });
+}
+
+function eliminarAlumno(matricula) {
+    if (!confirm("¿Seguro que deseas eliminar este alumno?")) return;
+
+    $.ajax({
+        url: '../../Negocio/eliminar_alumno.php',
+        method: 'POST',
+        data: { matricula: matricula },
+        success: function(resp) {
+            alert(resp);
+            cargarAlumnos(); // Recargar tabla
         }
     });
 }
