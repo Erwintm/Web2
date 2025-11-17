@@ -44,6 +44,9 @@ if ($alumnos) {
                 <td>{$a['estado']}</td>
                  <td style='text-align:center;'>
                     
+                     <button class='btn-editar' onclick=\"location.href='editar_alumno.php?matricula={$a['matricula']}'\">
+                        Editar
+                    </button>
 
                         <button class='btn-eliminar' onclick=\"eliminarAlumno('{$a['matricula']}')\">
                         Eliminar
