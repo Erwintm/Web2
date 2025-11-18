@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $sql = "SELECT * FROM usuarios WHERE nombre_usuario = :usuario AND contraseña = :password";
+   $sql = "SELECT * FROM usuarios WHERE nombre_usuario = :usuario AND contraseña = SHA2(:password, 256)";
+
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
     $stmt->bindParam(':password', $password);
