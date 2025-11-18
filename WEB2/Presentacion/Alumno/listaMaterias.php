@@ -17,6 +17,8 @@
       <th>ID Materia</th>
       <th>Nombre</th>
       <th>Créditos</th>
+      <th>Horario</th>
+      <th>Salon</th>
       <th>Profesor</th>
     </tr>
   </thead>
@@ -27,10 +29,10 @@
 </body>
 <script>
     $(document).ready(function() {
-            // Función para llenar el combo al cargar la página
+            
             function cargarMaterias() {
                 $.ajax({
-                    url: 'obtener_materias.php',
+                    url: '../Negocio/obtener_materias_alumnos.php',
                     type: 'POST',
                     dataType: 'json',
                     success: function(data) {
