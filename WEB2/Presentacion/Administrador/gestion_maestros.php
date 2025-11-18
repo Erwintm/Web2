@@ -14,7 +14,7 @@ require_once '../../Datos/conexion.php';
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Alumnos</title>
+    <title>Gestión de Maestros</title>
     <link rel="stylesheet" href="../Diseño/Administrador/gestion_alumnos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -25,49 +25,36 @@ require_once '../../Datos/conexion.php';
     <nav>
         <a href="menu.php">Inicio</a>
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
-        <a href="gestion_maestros.php">Gestion Maestros</a>
+        <a href="gestion_maestros.php">Gestión Maestros</a>
         <a href="perfil.php">Gestión Materias</a>
         <a href="../index.html">Cerrar sesión</a>
     </nav>
 </header>
 
 <div class="container">
-    <h2>Gestión de Alumnos</h2>
+    <h2>Gestión de Maestros</h2>
 
     <div class="filtros">
-        <select id="filtroCarrera">
-            <option value="">Todas las carreras</option>
-            <option value="Sistemas Computacionales">Sistemas Computaciones</option>
-            <option value="Industrial">Industrial</option>
-            <option value="Mecatronica">Mecatrónica</option>
-            <option value="Gestion">Gestión</option>
-             <option value="Gastronomia">Gastronomia</option>
-             <option value="Fisica">Fisica</option>
-        
-        
-        </select>
 
-        <input type="text" id="buscar" placeholder="Buscar por nombre de alumno...">
+        <input type="text" id="buscar" placeholder="Buscar por nombre de maestro...">
 
-        <button id="btnAgregar" onclick="location.href='agregar_alumno.php'">
-            Agregar Alumno
+        <button id="btnAgregar" onclick="location.href='agregar_maestro.php'">
+            Agregar Maestro
         </button>
     </div>
 
     <table>
         <thead>
             <tr>
-                <th>Matricula</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Email</th>
                 <th>Teléfono</th>
-                <th>Fecha de nacimiento</th>
-                <th>Estado</th>
-                  <th>Acciones</th> 
+                <th>Especialidad</th>
+                <th>Acciones</th>
             </tr>
         </thead>
-        <tbody id="tablaAlumnos"></tbody>
+        <tbody id="tablaMaestros"></tbody>
     </table>
 </div>
 
@@ -87,43 +74,40 @@ require_once '../../Datos/conexion.php';
 </footer>
 
 <script>
-function cargarAlumnos() {
+
+function cargarMaestros() {
     let filtro = $('#buscar').val();
-    let carrera = $('#filtroCarrera').val();
 
     $.ajax({
-        url: '../../Negocio/obtener_alumnos.php',
+        url: '../../Negocio/obtener_maestros.php',
         method: 'GET',
-        data: { 
-            filtro: filtro,
-            carrera: carrera
-        },
+        data: { filtro: filtro },
         success: function(response) {
-            $('#tablaAlumnos').html(response);
+            $('#tablaMaestros').html(response);
         }
     });
 }
 
-function eliminarAlumno(matricula) {
-    if (!confirm("¿Seguro que deseas eliminar este alumno?")) return;
+function eliminarMaestro(id) {
+    if (!confirm("¿Seguro que deseas eliminar este maestro?")) return;
 
     $.ajax({
-        url: '../../Negocio/eliminar_alumno.php',
+        url: '../../Negocio/eliminar_maestro.php',
         method: 'POST',
-        data: { matricula: matricula },
+        data: { id: id },
         success: function(resp) {
             alert(resp);
-            cargarAlumnos(); // Recargar tabla
+            cargarMaestros(); 
         }
     });
 }
 
 $(document).ready(function() {
-    cargarAlumnos(); // Cargar al inicio
+    cargarMaestros();
 
-    $('#buscar').on('keyup', cargarAlumnos);
-    $('#filtroCarrera').on('change', cargarAlumnos);
+    $('#buscar').on('keyup', cargarMaestros);
 });
+
 </script>
 
 </body>

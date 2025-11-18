@@ -10,7 +10,7 @@
     <h1>Adminitracion Escolar</h1>
     <nav>
       <a href="gestion_alumnos.php">Gestion Alumnos</a>
-      <a href="listaMaterias.php">Gestion Maestros</a>
+      <a href="gestion_maestros.php">Gestion Maestros</a>
       <a href="perfil.php">Gestion Materias</a>
       <a href="../index.html"> Cerrar sesión</a>
     </nav>

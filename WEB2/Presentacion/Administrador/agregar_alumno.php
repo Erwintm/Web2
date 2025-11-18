@@ -20,7 +20,7 @@ session_start();
     <nav>
         <a href="menu.php">Inicio</a>
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
-        <a href="listaMaterias.php">Gestión Maestros</a>
+         <a href="gestion_maestros.php">Gestion Maestros</a>
         <a href="perfil.php">Gestión Materias</a>
         <a href="../index.html">Cerrar sesión</a>
     </nav>
