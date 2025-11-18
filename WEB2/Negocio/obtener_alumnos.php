@@ -4,7 +4,7 @@ require_once '../Datos/conexion.php';
 $filtro = $_GET['filtro'] ?? '';
 $carrera = $_GET['carrera'] ?? '';
 
-$sql = "SELECT matricula, nombre, apellido, email, telefono, fecha_nacimiento, estado 
+$sql = "SELECT id_alumno, matricula, nombre, apellido, email, telefono, fecha_nacimiento, estado 
         FROM alumnos 
         WHERE 1";
 
@@ -31,7 +31,6 @@ if (!empty($carrera)) {
 $stmt->execute();
 $alumnos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Mostrar resultados
 if ($alumnos) {
     foreach ($alumnos as $a) {
         echo "<tr>
@@ -42,18 +41,17 @@ if ($alumnos) {
                 <td>{$a['telefono']}</td>
                 <td>{$a['fecha_nacimiento']}</td>
                 <td>{$a['estado']}</td>
-                 <td style='text-align:center;'>
-                    
-                     <button class='btn-editar' onclick=\"location.href='editar_alumno.php?matricula={$a['matricula']}'\">
+
+                <td style='text-align:center;'>
+                    <button class='btn-editar' onclick=\"location.href='editar_alumno.php?id={$a['id_alumno']}'\">
                         Editar
                     </button>
 
-                        <button class='btn-eliminar' onclick=\"eliminarAlumno('{$a['matricula']}')\">
+                    <button class='btn-eliminar' onclick=\"eliminarAlumno('{$a['matricula']}')\">
                         Eliminar
                     </button>
-                   </td>
-                
-              </tr>";
+                </td>
+            </tr>";
     }
 } else {
     echo "<tr><td colspan='7'>No se encontraron alumnos</td></tr>";
