@@ -9,7 +9,9 @@
     
     <nav>
         <h3>Materias cursadas</h3>
-        <button>Regresar</button>
+        <a href="menu.php">
+            <button>Regresar</button>
+        </a>
     </nav>
     <table id="tablaMaterias">
   <thead>
