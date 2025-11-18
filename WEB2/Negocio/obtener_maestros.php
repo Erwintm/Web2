@@ -47,9 +47,9 @@ if ($maestros) {
                     </button>
 
                     <button class='btn-eliminar'
-                        onclick=\"eliminarMaestro('{$m['id_maestro']}')\">
-                        Eliminar
-                    </button>
+    onclick='eliminarMaestro({$m['id_maestro']})'>
+    Eliminar
+</button>
                 </td>
               </tr>";
     }
