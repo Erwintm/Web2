@@ -4,8 +4,9 @@ require_once '../Datos/conexion.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_POST['usuario'] ?? '';
-    $password = $_POST['password'] ?? '';
+$usuario = trim($_POST['usuario'] ?? '');
+$password = trim($_POST['password'] ?? '');
+
 
     
 
