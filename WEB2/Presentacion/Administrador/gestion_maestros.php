@@ -36,7 +36,16 @@ require_once '../../Datos/conexion.php';
 
     <div class="filtros">
 
-        <input type="text" id="buscar" placeholder="Buscar por nombre de maestro...">
+        <!-- Combo de especialidades -->
+        <select id="filtroEspecialidad">
+    <option value="">Todas las especialidades</option>
+    <option value="Sistemas Computacionales">Sistemas Computacionales</option>
+    <option value="Matemáticas">Matemáticas</option>
+    <option value="Física">Física</option>
+    <option value="Electrónica">Electrónica</option>
+    <option value="Administración">Administración</option>
+</select>
+        <input type="text" id="buscar" placeholder="Buscar por nombre...">
 
         <button id="btnAgregar" onclick="location.href='agregar_maestro.php'">
             Agregar Maestro
@@ -51,6 +60,7 @@ require_once '../../Datos/conexion.php';
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Especialidad</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -77,11 +87,15 @@ require_once '../../Datos/conexion.php';
 
 function cargarMaestros() {
     let filtro = $('#buscar').val();
+    let especialidad = $('#filtroEspecialidad').val();
 
     $.ajax({
         url: '../../Negocio/obtener_maestros.php',
         method: 'GET',
-        data: { filtro: filtro },
+        data: { 
+            filtro: filtro,
+            especialidad: especialidad
+        },
         success: function(response) {
             $('#tablaMaestros').html(response);
         }
@@ -94,10 +108,10 @@ function eliminarMaestro(id) {
     $.ajax({
         url: '../../Negocio/eliminar_maestro.php',
         method: 'POST',
-        data: { id: id },
+        data: { id_maestro: id },
         success: function(resp) {
             alert(resp);
-            cargarMaestros(); 
+            cargarMaestros();
         }
     });
 }
@@ -106,8 +120,8 @@ $(document).ready(function() {
     cargarMaestros();
 
     $('#buscar').on('keyup', cargarMaestros);
+    $('#filtroEspecialidad').on('change', cargarMaestros);
 });
-
 </script>
 
 </body>
