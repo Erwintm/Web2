@@ -113,13 +113,13 @@ function eliminarAlumno(matricula) {
         data: { matricula: matricula },
         success: function(resp) {
             alert(resp);
-            cargarAlumnos(); // Recargar tabla
+            cargarAlumnos(); 
         }
     });
 }
 
 $(document).ready(function() {
-    cargarAlumnos(); // Cargar al inicio
+    cargarAlumnos(); 
 
     $('#buscar').on('keyup', cargarAlumnos);
     $('#filtroCarrera').on('change', cargarAlumnos);

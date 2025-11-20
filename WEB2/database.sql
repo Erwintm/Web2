@@ -60,6 +60,8 @@ CREATE TABLE asignaturas (
     id_maestro INT NOT NULL,
     horario VARCHAR(10),
     salon VARCHAR(5),
+
+
     capacidad INT DEFAULT 30,
     estado ENUM('activa', 'inactiva') DEFAULT 'activa',
     FOREIGN KEY (id_maestro) REFERENCES maestros(id_maestro) ON DELETE RESTRICT

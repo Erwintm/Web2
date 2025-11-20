@@ -1,5 +1,5 @@
 <?php
-// Negocio/agregar_alumno.php
+
 session_start();
 
 // restringir acceso
@@ -40,7 +40,7 @@ if (!empty($errors)) {
 }
 
 try {
-    // Iniciar transacción
+  
     $pdo->beginTransaction();
 
     // 1) Insertar en usuarios (contraseña con SHA2 en MySQL)
@@ -55,7 +55,7 @@ try {
 
     $id_usuario = $pdo->lastInsertId();
 
-    // 2) Insertar en alumnos
+    
     $sqlAlumno = "INSERT INTO alumnos
         (id_usuario, matricula, nombre, apellido, email, telefono, fecha_nacimiento, estado, carrera)
         VALUES (:id_usuario, :matricula, :nombre, :apellido, :email, :telefono, :fecha_nacimiento, 'activo', :carrera)";
@@ -71,10 +71,10 @@ try {
         ':carrera' => $carrera
     ]);
 
-    // Confirmar transacción
+ 
     $pdo->commit();
 
-    // Redirigir con mensaje (ajusta la URL según tu estructura)
+    
     echo "<script>
             alert('Alumno registrado correctamente. Usuario: {$usuario}');
             window.location.href = '../Presentacion/Administrador/gestion_alumnos.php';
@@ -82,7 +82,7 @@ try {
     exit;
 
 } catch (PDOException $e) {
-    // Revertir y mostrar error (en producción loguea en vez de mostrar)
+    
     if ($pdo->inTransaction()) $pdo->rollBack();
     echo "<script>alert('Error: ".addslashes($e->getMessage())."'); window.history.back();</script>";
     exit;
