@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Solo administradores pueden entrar
+
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administrador') {
     header("Location: ../../login.html");
     exit;
