@@ -24,6 +24,7 @@ $id_maestro = $row['id_maestro'];
 // Filtros desde GET
 $filtro = $_GET['filtro'] ?? '';
 $estado = $_GET['estado'] ?? '';
+$opciones = $_GET['opciones'] ?? 0;
 
 // Construir consulta SQL
 $sql = "SELECT a.id_asignatura, a.codigo, a.nombre, a.creditos, a.horario, a.salon, a.estado, 
@@ -56,6 +57,20 @@ if (!empty($estado)) {
 
 $stmt->execute();
 $materias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Si se solicitan opciones para un select (opciones=1), devolver <option>
+if ($opciones == 1) {
+	if ($materias) {
+		foreach ($materias as $m) {
+			$id = (int)$m['id_asignatura'];
+			$nombre = htmlspecialchars($m['nombre']);
+			echo "<option value=\"{$id}\">{$nombre}</option>";
+		}
+	} else {
+		echo "<option value=\"\">No hay materias</option>";
+	}
+	exit;
+}
 
 if ($materias) {
 	foreach ($materias as $m) {
