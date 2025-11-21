@@ -23,7 +23,7 @@ require_once '../../Datos/conexion.php';
     <nav>
       <a href="gestion_alumnos.php">Gestion Alumnos</a>
       <a href="gestion_maestros.php">Gestion Maestros</a>
-      <a href="perfil.php">Gestion Materias</a>
+      <a href="gestion_asignaturas.php">Gestion Materias</a>
       <a href="../index.html"> Cerrar sesión</a>
     </nav>
   </header>
