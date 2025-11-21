@@ -31,7 +31,7 @@ $sql = "SELECT al.id_alumno, al.nombre, al.apellido, a.id_asignatura, a.nombre A
 		FROM alumnos al
 		INNER JOIN inscripciones i ON al.id_alumno = i.id_alumno
 		INNER JOIN asignaturas a ON i.id_asignatura = a.id_asignatura
-		LEFT JOIN calificaciones c ON a.id_asignatura = c.id_materia AND al.id_alumno = c.id_alumno
+		LEFT JOIN calificaciones c ON i.id_inscripcion = c.id_inscripcion
 		LEFT JOIN promedios p ON a.id_asignatura = p.id_asignatura AND al.id_alumno = p.id_alumno
 		WHERE a.id_maestro = :id_maestro";
 

@@ -132,7 +132,8 @@ $(document).ready(function() {
             data: {
                 id_materia: id_materia,
                 id_alumno: id_alumno,
-                calificacion: calificacion
+                calificacion: calificacion,
+                parcial: 'Parcial 1'
             },
             success: function(respuesta) {
                 fila.find('.resultado').html(respuesta);
