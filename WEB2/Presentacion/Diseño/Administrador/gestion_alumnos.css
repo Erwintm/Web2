@@ -158,7 +158,7 @@ footer {
   margin-bottom: 20px;
 }
 
-#filtroCarrera,#filtroEspecialidad {
+#filtroCarrera,#filtroEspecialidad,#filtroMaestro {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
