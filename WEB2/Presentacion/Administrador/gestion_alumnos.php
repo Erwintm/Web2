@@ -25,8 +25,8 @@ require_once '../../Datos/conexion.php';
     <nav>
         <a href="menu.php">Inicio</a>
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
-        <a href="gestion_maestros.php">Gestion Maestros</a>
-        <a href="gestion_asignaturas.php">Gestion Materias</a>
+        <a href="gestion_maestros.php">Gestión Maestros</a>
+        <a href="gestion_asignaturas.php">Gestión Materias</a>
         <a href="../index.html">Cerrar sesión</a>
     </nav>
 </header>
