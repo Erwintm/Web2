@@ -1,5 +1,12 @@
 <?php
 require_once '../Datos/conexion.php';
+session_start();
+
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administrador') {
+    http_response_code(403);
+    echo "Acceso no autorizado";
+    exit;
+}
 
 $filtro = $_GET['filtro'] ?? '';
 $maestro = $_GET['maestro'] ?? '';
