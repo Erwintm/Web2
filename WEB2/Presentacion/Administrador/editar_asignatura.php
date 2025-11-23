@@ -2,10 +2,9 @@
 session_start();
 
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administrador') {
-    header("Location: ../login.html");
+    header("Location: ../index.html");
     exit;
 }
-
 require_once '../../Datos/conexion.php';
 
 // Validar ID
