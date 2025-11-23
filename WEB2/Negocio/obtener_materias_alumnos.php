@@ -1,31 +1,31 @@
 <?php
 header('Content-Type: application/json');
-
 session_start();
+require '../Datos/conexion.php';
 
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
-    header("Location: ../index.html");
+    echo json_encode(['error' => 'Acceso denegado']);
     exit;
 }
 
-require 'conexion.php';
-
-$id_usuario = $_SESSION['id_alumno']; 
-
+$id_usuario = $_SESSION['id_usuario'];
 
 $sql = "SELECT id_alumno FROM alumnos WHERE id_usuario = :id_usuario";
 $stmt = $pdo->prepare($sql);
-$stmt->execute([':id_usuario' => $id_usuario]);
-$alumno = $stmt->fetch(PDO::FETCH_ASSOC);
+$stmt->bindParam(':id_usuario', $id_usuario);
+$stmt->execute();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$alumno) {
-    echo json_encode(['error' => 'No se encontró el alumno']);
+if (!$row) {
+    echo json_encode(['error' => 'No se encontró información del alumno']);
     exit;
 }
-$id_alumno = $alumno['id_alumno'];
+
+$id_alumno = $row['id_alumno'];
 
 
-$sql = "select a.id_asignatura,a.nombre,a.creditos,a.horario,a.salon,concat(m.nombre, ' ', m.apellido) AS profesor from inscripciones i inner join asignaturas a on i.id_asignatura = a.id_asignatura inner join maestros m on a.id_maestro = m.id_maestro
+
+$sql = "select a.codigo,a.nombre,a.creditos,a.horario,a.salon,concat(m.nombre, ' ', m.apellido) AS profesor from inscripciones i inner join asignaturas a on i.id_asignatura = a.id_asignatura inner join maestros m on a.id_maestro = m.id_maestro
         where i.id_alumno = :id_alumno";
 
 $stmt = $pdo->prepare($sql);
