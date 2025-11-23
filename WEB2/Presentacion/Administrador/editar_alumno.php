@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administrador') {
+    header("Location: ../login.html");
+    exit;
+}
 
 // Obtener ID
 if (!isset($_GET['id']) || empty($_GET['id'])) {
@@ -44,7 +47,7 @@ if (!$alumno) {
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
         <a href="gestion_maestros.php">Gestión Maestros</a>
         <a href="gestion_asignaturas.php">Gestión Materias</a>
-        <a href="../index.html">Cerrar sesión</a>
+        <a href="../../Negocio/logout.php"> Cerrar sesión</a>
     </nav>
 </header>
 
