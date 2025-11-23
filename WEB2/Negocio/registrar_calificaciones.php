@@ -10,11 +10,30 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] !== 'maestro'
     exit;
 }
 
+// Obtener el ID del maestro logueado para validar propiedad ---
+$stmtM = $pdo->prepare("SELECT id_maestro FROM maestros WHERE id_usuario = ?");
+$stmtM->execute([$_SESSION['id_usuario']]);
+$id_maestro_logueado = $stmtM->fetchColumn();
+
+if (!$id_maestro_logueado) {
+    echo "<span style='color:red;'>Error: No se identificó al maestro.</span>";
+    exit;
+}
+
 // 2. Recibir datos
 $id_asignatura = $_POST['id_materia'] ?? null;
 $id_alumno     = $_POST['id_alumno'] ?? null;
 $calificacion  = $_POST['calificacion'] ?? null;
 $parcial       = $_POST['parcial'] ?? 'Parcial 1'; // Valor por defecto si no se envía
+
+
+// Solo permitimos estos valores exactos.
+$parciales_permitidos = ['Parcial 1', 'Parcial 2', 'Parcial 3'];
+if (!in_array($parcial, $parciales_permitidos)) {
+    echo "<span style='color:red;'>Error: Parcial no válido.</span>";
+    exit;
+}
+
 
 // Validaciones
 if (!$id_asignatura || !$id_alumno || !is_numeric($calificacion)) {

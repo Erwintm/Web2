@@ -1,0 +1,100 @@
+/* perfil.css */
+.contenedor-perfil {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.titulo-perfil {
+    text-align: center;
+    color: #2c4c8a;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+/* Estilo para cada bloque de dato (label + input) */
+.fila-dato {
+    margin-bottom: 15px;
+}
+
+.fila-dato label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-lectura {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Gris para indicar que no se edita */
+    color: #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.mensaje-info {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #eaf2f8;
+    color: #2c4c8a;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: #2c4c8a;
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    padding: 15px 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;         
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-izquierda {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 15px; 
+}
+
+.logo-footer {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info p {
+    margin: 2px 0;
+    font-size: 14px;
+    
+}
+
+.footer-derecha {
+    text-align: right;
+    flex: 1;
+}
+
+.footer-derecha p {
+    margin: 5px 0;
+    font-size: 14px;
+    
+}

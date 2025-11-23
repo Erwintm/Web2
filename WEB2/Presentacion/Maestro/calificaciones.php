@@ -46,7 +46,7 @@ require_once '../../Datos/conexion.php';
         <option value="Parcial 2">Parcial 2</option>
         <option value="Parcial 3">Parcial 3</option>
     </select>
-    
+
 </div>
     <table id="tabla-calificaciones">
         <thead>
@@ -149,7 +149,7 @@ $(document).ready(function() {
                 id_materia: id_materia,
                 id_alumno: id_alumno,
                 calificacion: calificacion,
-                parcial: parcialSeleccionado // <--- ENVIAR "Parcial 1", "Parcial 2", etc.
+                parcial: parcialSeleccionado // <--- ENVIAR "Parcial 1", "Parcial 2", "Parcial 3".
             },
             success: function(respuesta) {
                 fila.find('.resultado').html(respuesta);
