@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$id_alumno  = $_POST['id_alumno'];
-$id_usuario = $_POST['id_usuario'];
+$id_alumno  = (int)$_POST['id_alumno'];
+$id_usuario = (int)$_POST['id_usuario'];
 
 $matricula = trim($_POST['matricula']);
 $nombre = trim($_POST['nombre']);
@@ -27,17 +27,48 @@ $usuario = trim($_POST['usuario']);
 $password = $_POST['password'];
 $estado = trim($_POST['estado']);
 
-if ($matricula === "" || $nombre === "" || $apellido === "" || $email === "" ||
-    $fecha_nac === "" || $carrera === "" || $usuario === "") {
+$errores = [];
 
-    echo "<script>alert('Faltan campos requeridos'); window.history.back();</script>";
+
+// ---------- VALIDACIONES ----------
+if (!preg_match('/^[A-Z0-9]{6,12}$/', $matricula)) {
+    $errores[] = "La matrícula es inválida.";
+}
+
+if (!preg_match('/^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{2,40}$/', $nombre)) {
+    $errores[] = "Nombre inválido (solo letras).";
+}
+
+if (!preg_match('/^[A-Za-zÁÉÍÓÚÑáéíóúñ ]{2,40}$/', $apellido)) {
+    $errores[] = "Apellido inválido (solo letras).";
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores[] = "Email no válido.";
+}
+
+if (!preg_match('/^[0-9]{7,15}$/', $telefono) && $telefono !== "") {
+    $errores[] = "Teléfono no válido.";
+}
+
+if (!preg_match('/^[A-Za-z0-9_]{4,20}$/', $usuario)) {
+    $errores[] = "El usuario solo puede contener letras, números y guiones bajos.";
+}
+
+if (!in_array($estado, ["activo", "inactivo"])) {
+    $errores[] = "Estado inválido.";
+}
+
+if (!empty($errores)) {
+    echo "<script>alert('".implode("\\n", $errores)."'); window.history.back();</script>";
     exit;
 }
 
+
+// ---------- ACTUALIZAR ----------
 try {
     $pdo->beginTransaction();
 
-    // UPDATE usuarios
     if ($password == "") {
         $sqlU = "UPDATE usuarios SET nombre_usuario = :usuario, email = :email
                  WHERE id_usuario = :id_usuario";
@@ -60,7 +91,6 @@ try {
         ]);
     }
 
-    // UPDATE alumnos
     $sqlA = "UPDATE alumnos SET 
                 matricula = :matricula,
                 nombre = :nombre,

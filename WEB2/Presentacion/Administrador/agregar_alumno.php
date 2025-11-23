@@ -5,32 +5,28 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administr
     header("Location: ../index.html");
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Agregar Alumno</title>
-
-   
     <link rel="stylesheet" href="../Diseño/Administrador/agregar_alumnos.css">
 </head>
 <body>
-
 
 <header>
     <h1>Administración Escolar</h1>
     <nav>
         <a href="menu.php">Inicio</a>
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
-         <a href="gestion_maestros.php">Gestión Maestros</a>
-       <a href="gestion_asignaturas.php">Gestión Materias</a>
-        <a href="../../Negocio/logout.php"> Cerrar sesión</a>
+        <a href="gestion_maestros.php">Gestión Maestros</a>
+        <a href="gestion_asignaturas.php">Gestión Materias</a>
+        <a href="../../Negocio/logout.php">Cerrar sesión</a>
     </nav>
 </header>
-<div class="container">
 
+<div class="container">
     <h2>Agregar Alumno</h2>
 
     <form action="../../Negocio/agregar_alumno.php" method="POST" class="form-alumno">
@@ -55,22 +51,33 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administr
 
         <div class="form-group">
             <label>Nombre:</label>
-            <input type="text" name="nombre" required>
+            <input type="text" name="nombre" 
+                   required 
+                   pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,40}"
+                   title="Solo letras y espacios, mínimo 2 caracteres">
         </div>
 
         <div class="form-group">
             <label>Apellido:</label>
-            <input type="text" name="apellido" required>
+            <input type="text" name="apellido" 
+                   required
+                   pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,40}"
+                   title="Solo letras y espacios, mínimo 2 caracteres">
         </div>
 
         <div class="form-group">
             <label>Email institucional:</label>
-            <input type="email" name="email" required>
+            <input type="email" name="email" 
+                   required 
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                   title="Ingrese un correo válido">
         </div>
 
         <div class="form-group">
             <label>Teléfono:</label>
-            <input type="text" name="telefono">
+            <input type="text" name="telefono"
+                   pattern="[0-9]{10}"
+                   title="Debe contener 10 dígitos">
         </div>
 
         <div class="form-group">
@@ -82,18 +89,23 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administr
 
         <div class="form-group">
             <label>Usuario:</label>
-            <input type="text" name="usuario" required>
+            <input type="text" name="usuario"
+                   required
+                   pattern="[A-Za-z0-9._-]{4,20}"
+                   title="Letras, números, guión o punto. Mínimo 4 caracteres">
         </div>
 
         <div class="form-group">
             <label>Contraseña:</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password"
+                   required
+                   minlength="6"
+                   title="Mínimo 6 caracteres">
         </div>
 
         <button type="submit" class="btn-guardar">Guardar Alumno</button>
 
     </form>
-
 </div>
 
 <footer>
@@ -112,7 +124,7 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administr
 </footer>
 
 <script>
-// Genera matrícula dependiendo de la carrera
+// Genera matrícula automáticamente
 document.getElementById('carrera').addEventListener('change', function () {
     let inicial = this.value.charAt(0).toUpperCase();
     let random = Math.floor(Math.random() * 90000) + 10000;

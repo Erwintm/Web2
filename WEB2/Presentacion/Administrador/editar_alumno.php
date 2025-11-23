@@ -8,7 +8,7 @@ if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administr
 
 // Obtener ID
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    die("IaD inválido");
+    die("ID inválido");
 }
 
 $id = (int)$_GET['id'];
@@ -47,7 +47,7 @@ if (!$alumno) {
         <a href="gestion_alumnos.php">Gestión Alumnos</a>
         <a href="gestion_maestros.php">Gestión Maestros</a>
         <a href="gestion_asignaturas.php">Gestión Materias</a>
-        <a href="../../Negocio/logout.php"> Cerrar sesión</a>
+        <a href="../../Negocio/logout.php">Cerrar sesión</a>
     </nav>
 </header>
 
@@ -74,27 +74,32 @@ if (!$alumno) {
 
         <div class="form-group">
             <label>Matrícula:</label>
-            <input type="text" name="matricula" value="<?= $alumno['matricula'] ?>" required>
+            <input type="text" name="matricula" value="<?= $alumno['matricula'] ?>" 
+                   placeholder="Ingresa la matrícula oficial" required>
         </div>
 
         <div class="form-group">
             <label>Nombre:</label>
-            <input type="text" name="nombre" value="<?= $alumno['nombre'] ?>" required>
+            <input type="text" name="nombre" value="<?= $alumno['nombre'] ?>" 
+                   placeholder="Solo letras" required>
         </div>
 
         <div class="form-group">
             <label>Apellido:</label>
-            <input type="text" name="apellido" value="<?= $alumno['apellido'] ?>" required>
+            <input type="text" name="apellido" value="<?= $alumno['apellido'] ?>" 
+                   placeholder="Solo letras" required>
         </div>
 
         <div class="form-group">
             <label>Email institucional:</label>
-            <input type="email" name="email" value="<?= $alumno['email'] ?>" required>
+            <input type="email" name="email" value="<?= $alumno['email'] ?>" 
+                   placeholder="Correo institucional activo" required>
         </div>
 
         <div class="form-group">
             <label>Teléfono:</label>
-            <input type="text" name="telefono" value="<?= $alumno['telefono'] ?>">
+            <input type="text" name="telefono" value="<?= $alumno['telefono'] ?>" 
+                   placeholder="10 dígitos" maxlength="10">
         </div>
 
         <div class="form-group">
@@ -106,12 +111,13 @@ if (!$alumno) {
 
         <div class="form-group">
             <label>Usuario:</label>
-            <input type="text" name="usuario" value="<?= $alumno['nombre_usuario'] ?>" required>
+            <input type="text" name="usuario" value="<?= $alumno['nombre_usuario'] ?>" 
+                   placeholder="Nombre de usuario para iniciar sesión" required>
         </div>
 
         <div class="form-group">
             <label>Nueva contraseña (opcional):</label>
-            <input type="password" name="password">
+            <input type="password" name="password" placeholder="Déjalo vacío si no deseas cambiarla">
             <small>Déjalo vacío si no deseas cambiarla</small>
         </div>
 
@@ -126,8 +132,6 @@ if (!$alumno) {
         <button type="submit" class="btn-guardar">Guardar Cambios</button>
 
     </form>
-
-    
 
 </div>
 
