@@ -27,7 +27,7 @@ require_once '../../Datos/conexion.php';
         <a href="gestion_materias.php">Mis Materias</a>
         <a href="calificaciones.php">Calificaciones</a>
         <a href="perfil.php">Mi Perfil</a>
-        <a href="../../Presentacion/index.html">Cerrar sesión</a>
+        <a href="../../Negocio/logout.php">Cerrar sesión</a>
     </nav>
 </header>
 
