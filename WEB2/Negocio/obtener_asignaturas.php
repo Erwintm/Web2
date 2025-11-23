@@ -45,6 +45,11 @@ if ($data) {
                 <td style='text-align:center;'>
                     <button class='btn-editar' onclick=\"location.href='editar_asignatura.php?id={$a['id_asignatura']}'\">Editar</button>
                     <button class='btn-eliminar' onclick=\"eliminarAsignatura({$a['id_asignatura']})\">Eliminar</button>
+                    
+                    <button class='btn-inscritos' onclick=\"location.href='alumnos_inscritos.php?id_asignatura={$a['id_asignatura']}'\">
+                            Alumnos
+                    </button>
+                    
                 </td>
             </tr>";
     }
