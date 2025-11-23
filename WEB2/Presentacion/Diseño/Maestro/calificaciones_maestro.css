@@ -66,3 +66,43 @@
     font-size: 0.95rem;
     color: #636e72;
 }
+
+
+/* --- Estilos para la sección de Filtros --- */
+
+.filtros {
+    display: flex;           /* Acomoda los elementos en línea */
+    gap: 10px;               /* Espacio entre ellos */
+    margin-bottom: 20px;     /* Separa los filtros de la tabla */
+    align-items: center;     /* Centra verticalmente */
+}
+
+/* Estilo compartido para el buscador y los selects */
+.filtros input, 
+.filtros select {
+    padding: 8px 12px;
+    border: 1px solid #b2bec3; /* Mismo borde que tus inputs de calificación */
+    border-radius: 4px;        /* Mismo redondeado que tus botones */
+    color: #2c3e50;            /* Mismo color de texto que los títulos */
+    font-size: 1rem;
+    background-color: #fff;
+    outline: none;
+}
+
+/* El buscador se estira un poco para escribir cómodo */
+#buscar {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+/* Estilo específico para el Parcial */
+#filtroParcial {
+    background-color: #f4f6fa; /* El mismo gris clarito de tus filas pares */
+    font-weight: 600;          /* Un poco más negrita para distinguirlo */
+    cursor: pointer;
+}
+
+/* Pequeño efecto al pasar el mouse sobre los selects */
+.filtros select:hover {
+    border-color: #2980b9; /* Se pone azul (como el encabezado) al tocarlo */
+}

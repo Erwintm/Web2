@@ -63,7 +63,7 @@ try {
     $stmt->execute([$id_alumno, $id_asignatura, $promedio, $estado]);
 
     // RESPUESTA EXITOSA 
-    echo "<span style='color:green; font-weight:bold;'>✔ Guardado</span>";
+    echo "<span style='color:green; font-weight:bold;'>Guardado</span>";
 
 } catch (PDOException $e) {
     echo "<span style='color:red;'>Error BD</span>";

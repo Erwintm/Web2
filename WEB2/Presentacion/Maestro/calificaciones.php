@@ -35,13 +35,19 @@ require_once '../../Datos/conexion.php';
     <h2>Registro de Calificaciones</h2>
 
     <div class="filtros">
-        <input type="text" id="buscar" placeholder="Buscar por alumno...">
-        
-        <select id="filtroEstado">
-            <option value="">Todas las materias</option>
-        </select>
-    </div>
+    <input type="text" id="buscar" placeholder="Buscar por alumno...">
+    
+    <select id="filtroEstado">
+        <option value="">Todas las materias</option>
+    </select>
 
+    <select id="filtroParcial">
+        <option value="Parcial 1">Parcial 1</option>
+        <option value="Parcial 2">Parcial 2</option>
+        <option value="Parcial 3">Parcial 3</option>
+    </select>
+    
+</div>
     <table id="tabla-calificaciones">
         <thead>
             <tr>
@@ -90,13 +96,15 @@ function cargarMateriasEnFiltro() {
 function cargarAlumnosMaterias() {
     let filtro = $('#buscar').val();
     let id_materia = $('#filtroEstado').val();
+    let parcial = $('#filtroParcial').val();
 
     $.ajax({
         url: '../../Negocio/obtener_alumnos_materia.php',
         method: 'GET',
         data: {
             filtro: filtro,
-            id_materia: id_materia
+            id_materia: id_materia,
+            parcial: parcial
         },
         success: function(data) {
             $('#tablabody').html(data);
@@ -114,12 +122,20 @@ $(document).ready(function() {
     $('#buscar').on('keyup', function() { cargarAlumnosMaterias(); });
     $('#filtroEstado').on('change', function() { cargarAlumnosMaterias(); });
 
+     //Recargar si cambia el parcial
+    $('#filtroParcial').on('change', function() { 
+        cargarAlumnosMaterias(); 
+    });
+
     // Evento para registrar calificación
     $('#tabla-calificaciones').on('click', '.btn-registrar', function() {
         var fila = $(this).closest('tr');
         var id_materia = fila.data('id-materia');
         var id_alumno = fila.data('id-alumno');
         var calificacion = fila.find('.input-calificacion').val();
+
+        // OBTENER EL PARCIAL ACTUAL DEL SELECTOR SUPERIOR
+        var parcialSeleccionado = $('#filtroParcial').val(); 
 
         if (!calificacion || isNaN(calificacion)) {
             alert('Ingrese una calificación válida');
@@ -133,7 +149,7 @@ $(document).ready(function() {
                 id_materia: id_materia,
                 id_alumno: id_alumno,
                 calificacion: calificacion,
-                parcial: 'Parcial 1'
+                parcial: parcialSeleccionado // <--- ENVIAR "Parcial 1", "Parcial 2", etc.
             },
             success: function(respuesta) {
                 fila.find('.resultado').html(respuesta);
