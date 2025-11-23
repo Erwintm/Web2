@@ -1,9 +1,16 @@
 <?php
 header('Content-Type: application/json');
+
 session_start();
+
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
+    header("Location: ../index.html");
+    exit;
+}
+
 require 'conexion.php';
 
-$id_usuario = $_SESSION['id_usuario'];
+$id_usuario = $_SESSION['id_alumno']; 
 
 
 $sql = "SELECT id_alumno FROM alumnos WHERE id_usuario = :id_usuario";
@@ -15,7 +22,6 @@ if (!$alumno) {
     echo json_encode(['error' => 'No se encontró el alumno']);
     exit;
 }
-
 $id_alumno = $alumno['id_alumno'];
 
 
@@ -27,6 +33,6 @@ $stmt->execute([':id_alumno' => $id_alumno]);
 
 $materias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Devolver JSON
+
 echo json_encode($materias);
 ?>

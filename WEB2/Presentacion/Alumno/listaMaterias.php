@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
     
     <nav>
         <h3>Materias cursadas</h3>
+        <a href="../../Negocio/logout.php"> Cerrar sesión</a>
         <a href="menu.php">
             <button>Regresar</button>
         </a>
@@ -34,7 +35,7 @@
             
             function cargarMaterias() {
                 $.ajax({
-                    url: '../Negocio/obtener_materias_alumnos.php',
+                    url: '../../Negocio/obtener_materias_alumnos.php',
                     type: 'POST',
                     dataType: 'json',
                     success: function(data) {
@@ -46,7 +47,7 @@
                             $.each(data, function(index, materia) {
                                 let fila = `
                                 <tr>
-                                    <td>${materia.idmateria}</td>
+                                    <td>${materia.id_asignatura}</td>
                                     <td>${materia.nombre}</td>
                                     <td>${materia.creditos}</td>
                                     <td>${materia.horario}</td>
