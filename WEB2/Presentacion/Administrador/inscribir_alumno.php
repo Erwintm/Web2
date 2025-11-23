@@ -37,6 +37,17 @@ $alumnos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 
+<header>
+    <h1>Adminitracion Escolar</h1>
+    <nav>
+         <a href="menu.php">Inicio</a>
+      <a href="gestion_alumnos.php">Gestion Alumnos</a>
+      <a href="gestion_maestros.php">Gestion Maestros</a>
+      <a href="gestion_asignaturas.php">Gestion Materias</a>
+      <a href="../index.html"> Cerrar sesión</a>
+    </nav>
+  </header>
+
 <div class='container'>
     <h2>Inscribir Alumno</h2>
 
@@ -58,6 +69,22 @@ $alumnos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <button type='submit' class='btn-agregar'>Inscribir</button>
     </form>
 </div>
+
+ <footer>
+  <div class="footer-izquierda">
+    <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
+    
+    <div class="footer-info">
+      <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
+       <p><strong>Correo:instecsanico@gmail.com</strong></p>
+    </div>
+  </div>
+
+  <div class="footer-derecha">
+    <p><strong>Sistema de Administración Escolar 2025</strong></p>
+    <p><strong>Desarrollado por el área de informática</strong></p>
+  </div>
+</footer>
 
 </body>
 </html>
