@@ -18,15 +18,18 @@ require_once '../../Datos/conexion.php';
 </head>
 <body>
     
-    <header>
-    
+   <header>
+    <h1>Bienvenido, Alumno</h1>
     <nav>
+      <a href="menu.php">Inicio</a>
       <a href="calificaciones.php">Calificaciones</a>
       <a href="listaMaterias.php">Materias</a>
       <a href="perfil.php"> Mi Perfil</a>
-      <a href="../index.html"> Cerrar sesión</a>
+     <a href="../../Negocio/logout.php"> Cerrar sesión</a>
     </nav>
   </header>
+
+  
 
     <table id="tablaPerfil">
         <thead>
@@ -39,6 +42,22 @@ require_once '../../Datos/conexion.php';
         </thead>
         <tbody></tbody>
     </table>
+
+    <footer>
+        <div class="footer-izquierda">
+            <img src="../Imagenes/logo_tec.png" alt="Logo Instituto" class="logo-footer">
+            
+            <div class="footer-info">
+                <p><strong>Instituto Tecnológico Superior de San Nicolás de Hidalgo</strong></p>
+                <p><strong>Correo: instecsanico@gmail.com</strong></p>
+            </div>
+        </div>
+
+        <div class="footer-derecha">
+            <p><strong>Sistema de Administración Escolar 2025</strong></p>
+            <p><strong>Desarrollado por el área de informática</strong></p>
+        </div>
+    </footer>
 
 </body>
 

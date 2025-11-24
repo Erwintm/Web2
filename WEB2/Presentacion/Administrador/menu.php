@@ -1,22 +1,20 @@
 <?php
 session_start();
 
-// 1. Verificación de Sesión (Seguridad)
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'administrador') {
     header("Location: ../index.html");
     exit;
 }
 
-// 2. Conexión a la Base de Datos
+
 require_once '../../Datos/conexion.php';
 
-// --- 3. OBTENCIÓN DE CONTEOS REALES ---
 
-// Contar Alumnos
+
+
 $stmt_alumnos = $pdo->query("SELECT COUNT(*) FROM alumnos");
 $total_alumnos = $stmt_alumnos->fetchColumn();
 
-// Contar Maestros
 $stmt_maestros = $pdo->query("SELECT COUNT(*) FROM maestros");
 $total_maestros = $stmt_maestros->fetchColumn();
 

@@ -5,7 +5,7 @@ body {
   color: #333;
 }
 
-/* --- ENCABEZADO --- */
+
 header {
   background-color: #2c4c8a;
   color: white;
@@ -36,11 +36,11 @@ nav a:hover {
   color: #d6e0f0;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
+
 .container {
   padding: 30px 50px;
   background-color: white;
-  margin: 30px auto 120px; /* Margen inferior grande para el footer */
+  margin: 30px auto 120px; 
   max-width: 1100px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -53,17 +53,17 @@ nav a:hover {
   text-align: center;
 }
 
-/* --- NUEVA SECCIÓN DE FILTROS UNIFICADA --- */
+
 .filtros {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
   margin-bottom: 25px;
-  flex-wrap: wrap; /* Para que se ajuste en pantallas chicas */
+  flex-wrap: wrap; 
 }
 
-/* Estilo general para Inputs y Selects */
+
 .filtros input[type="text"], 
 .filtros select {
   padding: 10px 15px;
@@ -76,7 +76,7 @@ nav a:hover {
   transition: border 0.3s ease;
 }
 
-/* Efecto al escribir o seleccionar (se pone del azul de tu header) */
+
 .filtros input[type="text"]:focus, 
 .filtros select:focus,
 .filtros select:hover {
@@ -84,7 +84,7 @@ nav a:hover {
 }
 
 #buscar {
-  flex-grow: 1; /* Ocupa espacio disponible */
+  flex-grow: 1; 
   max-width: 400px;
   min-width: 200px;
 }
@@ -93,15 +93,15 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* Destacar un poco el filtro de Parcial */
+
 #filtroParcial {
   background-color: #f8f9fa;
   font-weight: bold;
   color: #2c4c8a;
-  border: 1px solid #2c4c8a; /* Borde azul por defecto para que destaque */
+  border: 1px solid #2c4c8a; 
 }
 
-/* --- TABLA --- */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -129,7 +129,7 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-/* --- INPUTS DENTRO DE LA TABLA --- */
+
 .input-calificacion {
     width: 70px;
     padding: 6px;
@@ -153,11 +153,11 @@ tr:hover {
     background: #219150;
 }
 
-/* --- FOOTER --- */
 footer {
   background-color: #2c4c8a;
   color: white;
   display: flex;
+  
   align-items: center;
   padding: 15px 40px;
   flex-wrap: wrap;
@@ -165,31 +165,33 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%; /* Corregido: 100% en lugar de 1800px para evitar scroll horizontal */
-  box-sizing: border-box; /* Para que el padding no rompa el ancho */
-  z-index: 100;
+  width: 1800px;
 }
 
 .footer-izquierda {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex: 1;
+  text-align: center;
 }
 
 .logo-footer {
-  width: 50px;
+  width: 60px;
   height: auto;
   margin-right: 15px;
   border-radius: 8px;
 }
 
 .footer-info {
-  text-align: left;
+  text-align: center;
+  
 }
 
 .footer-info p {
   margin: 2px 0;
   font-size: 14px;
+  padding-left: 360px;
 }
 
 .footer-derecha {
@@ -198,6 +200,7 @@ footer {
 }
 
 .footer-derecha p {
+  padding-right: 430px;
   margin: 5px 0;
   font-size: 14px;
 }

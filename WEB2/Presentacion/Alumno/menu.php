@@ -19,10 +19,11 @@ require_once '../../Datos/conexion.php';
   <header>
     <h1>Bienvenido, Alumno</h1>
     <nav>
+      <a href="menu.php">Inicio</a>
       <a href="calificaciones.php">Calificaciones</a>
       <a href="listaMaterias.php">Materias</a>
       <a href="perfil.php"> Mi Perfil</a>
-      <a href="../index.html"> Cerrar sesión</a>
+     <a href="../../Negocio/logout.php"> Cerrar sesión</a>
     </nav>
   </header>
 

@@ -97,18 +97,16 @@ footer {
   background-color: #2c4c8a;
   color: white;
   display: flex;
+  
   align-items: center;
   padding: 15px 40px;
-
   flex-wrap: wrap;
   box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
   bottom: 0;
   left: 0;
   width: 1800px;
-
 }
-
 
 .footer-izquierda {
   display: flex;
@@ -116,22 +114,19 @@ footer {
   justify-content: center;
   flex: 1;
   text-align: center;
-
 }
 
 .logo-footer {
-
   width: 60px;
   height: auto;
   margin-right: 15px;
   border-radius: 8px;
-
 }
 
 .footer-info {
   text-align: center;
+  
 }
-
 
 .footer-info p {
   margin: 2px 0;
