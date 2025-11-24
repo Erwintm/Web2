@@ -78,7 +78,7 @@ footer {
   color: white;
   display: flex;
   align-items: center;
-  padding: 15px 40px;
+  padding: 20px 45px;
 font-family: Arial, sans-serif;
   flex-wrap: wrap;
   box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
@@ -125,7 +125,7 @@ font-family: Arial, sans-serif;
 }
 
 .footer-derecha p {
-  padding-right: 430px;
+  padding-right: 400px;
   margin: 5px 0;
   font-size: 14px;
 }
