@@ -18,7 +18,7 @@
 
   <main>
     <h2>Inicio</h2>
-    <p>Hola nombre del alumno, bienvenido al sistema de control escolar.</p>
+    <p>Hola           , bienvenido al sistema de control escolar.</p>
 
     
   </main>
