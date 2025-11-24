@@ -49,7 +49,7 @@ $(document).ready(function() {
 
     function cargarCalificaciones() {
         $.ajax({
-           url: '../../Negocio/obtener_calificaciones_alumno.php',
+           url: '../../Negocio/Alumnos/obtener_calificaciones_alumno.php',
             type: 'POST',
             dataType: 'json',
             success: function(data) {

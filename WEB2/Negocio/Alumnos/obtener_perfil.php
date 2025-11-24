@@ -1,7 +1,9 @@
 <?php
 header('Content-Type: application/json');
+
 session_start();
-require '../Datos/conexion.php';
+
+require '../../Datos/conexion.php';
 
 if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
     echo json_encode(['error' => 'Acceso denegado']);
@@ -25,16 +27,13 @@ $id_alumno = $row['id_alumno'];
 
 
 
-$sql = "select  a.nombre as asignatura,c.tipo_evaluacion,c.calificacion from inscripciones i inner join asignaturas a on i.id_asignatura = a.id_asignatura
-left join calificaciones c on c.id_inscripcion = i.id_inscripcion
-where i.id_alumno = :id_alumno
-order by a.nombre, c.tipo_evaluacion";
+$sql = "select concat(nombre, ' ', apellido) AS alumno,matricula,estado,carrera from alumnos where id_alumno = :id_alumno";
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([':id_alumno' => $id_alumno]);
 
-$calificaciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$perfil  = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-echo json_encode($calificaciones);
+echo json_encode($perfil );
 ?>

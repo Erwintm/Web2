@@ -51,7 +51,7 @@ $(document).ready(function() {
 
     function cargarMaterias() {
         $.ajax({
-           url: '../../Negocio/obtener_materias_alumnos.php',
+           url: '../../Negocio/Alumnos/obtener_materias_alumnos.php',
             type: 'POST',
             dataType: 'json',
             success: function(data) {
