@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['tipo_usuario']) || $_SESSION['tipo_usuario'] != 'alumno') {
+    header("Location: ../../index.html");
+    exit;
+}
+
+require_once '../../Datos/conexion.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

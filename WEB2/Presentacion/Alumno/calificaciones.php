@@ -14,7 +14,7 @@ require_once '../../Datos/conexion.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materias cursadas</title>
-    <link rel="stylesheet" href="../Diseño/Alumno/lista_materias.css">
+    <link rel="stylesheet" href="../Diseño/Alumno/calificaciones.css">
 </head>
 <body>
     
